@@ -2,6 +2,8 @@ const path = require("path");
 
 module.exports = {
     mode: "development",
+
+    // Prevent eval(…)
     devtool: "source-map",
     entry: "./src/client.js",
     output: {
