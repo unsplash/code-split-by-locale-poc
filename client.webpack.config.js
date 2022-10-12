@@ -27,6 +27,13 @@ module.exports = {
         ],
     },
 
+    plugins: [
+        new webpack.DefinePlugin({
+            __CLIENT__: true,
+            __LANG__: JSON.stringify("en-US"),
+        }),
+    ],
+
     optimization: {
         minimizer: [
             new TerserPlugin({

@@ -11,6 +11,12 @@ module.exports = {
         path: path.join(__dirname, `dist-server`),
     },
 
+    plugins: [
+        new webpack.DefinePlugin({
+            __CLIENT__: false,
+        }),
+    ],
+
     module: {
         rules: [
             {
