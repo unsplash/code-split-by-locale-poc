@@ -7,6 +7,6 @@ const MyComponentLazy = React.lazy(() =>
 
 export const App = () => (
     <Suspense fallback={<div>Loading…</div>}>
-        <MyComponentLazy locale="en-US" />
+        <MyComponentLazy />
     </Suspense>
 );

@@ -1,14 +1,11 @@
-import * as enUS from "./en-US";
-import * as esES from "./es-ES";
-
 /**
  * @param {"en-US" | "es-ES"} lang
  */
 export const getTranslations = (lang) => {
     switch (lang) {
         case "en-US":
-            return enUS;
+            return import("./en-US");
         case "es-ES":
-            return esES;
+            return import("./es-ES");
     }
 };
