@@ -1,9 +1,10 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     target: "node",
 
-    mode: "development",
+    mode: "production",
     devtool: "source-map",
     entry: "./src/server.js",
     output: {

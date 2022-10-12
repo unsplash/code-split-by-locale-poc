@@ -1,7 +1,9 @@
 const path = require("path");
+const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-    mode: "development",
+    mode: "production",
 
     // Prevent eval(…)
     devtool: "source-map",
@@ -26,6 +28,24 @@ module.exports = {
     },
 
     optimization: {
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    // BEGIN DEFAULTS
+                    // https://cs.github.com/webpack/webpack/blob/753fdea847fafe2f1a7e1cb2324e5f7cafa63c83/lib/config/defaults.js#L1127
+                    compress: {
+                        passes: 2,
+                    },
+                    // END DEFAULTS
+
+                    mangle: false,
+                    output: {
+                        beautify: true,
+                    },
+                },
+            }),
+        ],
+
         runtimeChunk: {
             name: "runtime",
         },
