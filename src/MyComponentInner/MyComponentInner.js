@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Lang from "./lang";
 
-const MyComponentInner = () => {
-    const t = Lang.getTranslations("en-US");
+const MyComponentInner = ({ locale }) => {
+    const t = Lang.getTranslations(locale);
 
     return <div>{t.title()}</div>;
 };
