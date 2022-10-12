@@ -5,7 +5,7 @@ import { wrapPromise } from "../wrapPromise";
 
 import { timeout } from "../timeout";
 
-const resource = wrapPromise(() =>
+const resource = wrapPromise(
     // TODO: globalThis.__LOCALE__
     // TODO: how would this work on the server though?? there's no single locale
     timeout(1000).then(() => Lang.getTranslations("en-US"))

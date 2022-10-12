@@ -1,21 +1,18 @@
-export function wrapPromise(task) {
+export function wrapPromise(promise) {
     let status = "pending";
     let result;
-    let suspender;
+    let suspender = promise.then(
+        (r) => {
+            status = "success";
+            result = r;
+        },
+        (e) => {
+            status = "error";
+            result = e;
+        }
+    );
     return {
         read() {
-            if (suspender === undefined) {
-                suspender = task().then(
-                    (r) => {
-                        status = "success";
-                        result = r;
-                    },
-                    (e) => {
-                        status = "error";
-                        result = e;
-                    }
-                );
-            }
             if (status === "pending") {
                 throw suspender;
             } else if (status === "error") {

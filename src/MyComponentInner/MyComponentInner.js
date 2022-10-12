@@ -4,7 +4,7 @@ import { wrapPromise } from "../wrapPromise";
 
 import { timeout } from "../timeout";
 
-const resource = wrapPromise(() =>
+const resource = wrapPromise(
     timeout(1000).then(() => Lang.getTranslations("en-US"))
 );
 
