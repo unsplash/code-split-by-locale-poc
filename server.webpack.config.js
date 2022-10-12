@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
@@ -9,6 +10,12 @@ module.exports = {
     output: {
         path: path.join(__dirname, `dist-server`),
     },
+
+    plugins: [
+        new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 1,
+        }),
+    ],
 
     module: {
         rules: [

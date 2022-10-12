@@ -20,6 +20,7 @@ app.get("/", (req, res, next) => {
     <body>
         <div id="root">${html}</div>
 
+        <script src="static/enUS.js"></script>
         <script src="static/runtime.js"></script>
         <script src="static/framework.js"></script>
         <!-- Uncomment this to load the chunk so it can be imported synchronously. -->

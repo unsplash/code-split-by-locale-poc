@@ -1,0 +1,17 @@
+Input modules:
+Photo
+    lang/en-US
+    lang/es-ES
+Home
+    lang/en-US
+    lang/es-ES
+
+Right now we generate:
+Photo.js --- includes translations for all locales
+Home.js --- includes translations for all locales
+
+Sam's idea: generate a chunk per locale that contains all translations for the whole app
+Photo.js
+Home.js
+en-US.js
+es-ES.js
