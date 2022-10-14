@@ -7,8 +7,6 @@ import { timeout } from "../timeout";
 import { memoizeTask } from "../memoizeTask";
 
 const useMemoizedTask = createUseMemoizedTask(
-    // TODO: globalThis.__LOCALE__
-    // TODO: how would this work on the server though?? there's no single locale
     memoizeTask((locale) =>
         timeout(1000).then(() => Lang.getTranslations(locale))
     )
