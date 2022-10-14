@@ -15,10 +15,25 @@ const useMemoizedTask = createUseMemoizedTask(
 const MyComponent = () => {
     const t = useMemoizedTask();
 
+    const [state, setState] = React.useState(false);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            // This will show loading view again ❌
+            // setState(true);
+
+            // This won't show loading view again ✅
+            // https://github.com/acdlite/rfcs/blob/first-class-promises/text/0000-first-class-support-for-promises.md#example-use-in-client-components-and-hooks
+            React.startTransition(() => {
+                setState(true);
+            });
+        }, 2000);
+    });
+
     return (
         <>
             <div>{t.title()}</div>
-            <MyComponentInner />
+            {state && <MyComponentInner />}
         </>
     );
 };
