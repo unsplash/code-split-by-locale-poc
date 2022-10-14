@@ -1,8 +1,8 @@
 export const memoizeTask = (task) => {
     let promise;
-    const newTask = () => {
+    const newTask = (...params) => {
         if (!promise) {
-            promise = task();
+            promise = task(...params);
         }
         return promise;
     };

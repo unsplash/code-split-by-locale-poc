@@ -9,11 +9,18 @@ import { memoizeTask } from "../memoizeTask";
 const useMemoizedTask = createUseMemoizedTask(
     // TODO: globalThis.__LOCALE__
     // TODO: how would this work on the server though?? there's no single locale
-    memoizeTask(() => timeout(1000).then(() => Lang.getTranslations("en-US")))
+    memoizeTask((locale) =>
+        timeout(1000).then(() => Lang.getTranslations(locale))
+    )
 );
 
+const useTranslations = () => {
+    const locale = "en-US";
+    return useMemoizedTask(locale);
+};
+
 const MyComponent = () => {
-    const t = useMemoizedTask();
+    const t = useTranslations();
 
     const [state, setState] = React.useState(false);
 

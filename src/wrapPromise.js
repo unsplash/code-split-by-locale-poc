@@ -2,8 +2,8 @@ export function createUseMemoizedTask(memoizedTask) {
     let status = "pending";
     let result;
 
-    return () => {
-        const suspender = memoizedTask().then(
+    return (...params) => {
+        const suspender = memoizedTask(...params).then(
             (r) => {
                 status = "success";
                 result = r;

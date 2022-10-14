@@ -6,11 +6,18 @@ import { createUseMemoizedTask } from "../wrapPromise";
 import { memoizeTask } from "../memoizeTask";
 
 const useMemoizedTask = createUseMemoizedTask(
-    memoizeTask(() => timeout(1000).then(() => Lang.getTranslations("en-US")))
+    memoizeTask((locale) =>
+        timeout(1000).then(() => Lang.getTranslations(locale))
+    )
 );
 
+const useTranslations = () => {
+    const locale = "en-US";
+    return useMemoizedTask(locale);
+};
+
 const MyComponentInner = () => {
-    const t = useMemoizedTask();
+    const t = useTranslations();
 
     return <div>{t.title()}</div>;
 };
