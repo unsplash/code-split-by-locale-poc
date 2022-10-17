@@ -47,22 +47,6 @@ module.exports = {
                 enUS: {
                     test: /lang\/en-US/,
                     name: "enUS",
-                    // name: (module, chunks, cacheGroupKey) => {
-                    //     const moduleFileName = module
-                    //         .identifier()
-                    //         .split("/")
-                    //         .reduceRight((item) => item);
-                    //     // TODO:
-                    //     // eslint-disable-next-line local/no-array-join-method
-                    //     const _allChunksNames = chunks
-                    //         .map((item) => item.name)
-                    //         .join("~");
-                    //     const allChunksNames = crypto
-                    //         .createHash("md5")
-                    //         .update(_allChunksNames)
-                    //         .digest("hex");
-                    //     return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
-                    // },
                 },
 
                 esES: {
