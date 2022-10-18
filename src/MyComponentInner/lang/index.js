@@ -17,10 +17,9 @@ export const getTranslations = (locale) => {
 
     // dead code elimination + tree shaking takes care of the rest
 
-    switch (__CLIENT__ ? __LANG__ : locale) {
-        case "en-US":
-            return enUS;
-        case "es-ES":
-            return esES;
+    if ((__CLIENT__ ? __LANG__ : locale) === "en-US") {
+        return enUS;
+    } else if ((__CLIENT__ ? __LANG__ : locale) === "es-ES") {
+        return esES;
     }
 };
