@@ -19,8 +19,8 @@ export const getTranslations = (locale) => {
 
     switch (__CLIENT__ ? __LANG__ : locale) {
         case "en-US":
-            return { title: enUS.title };
+            return enUS;
         case "es-ES":
-            return { title: esES.title };
+            return esES;
     }
 };
