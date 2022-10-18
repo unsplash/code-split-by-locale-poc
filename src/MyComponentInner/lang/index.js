@@ -1,12 +1,10 @@
-// TODO: check why namespace imports don't tree shake
-import { title as titleEnUs } from "./en-US";
-import { title as titleEsEs } from "./es-ES";
+import * as enUS from "./en-US";
+import * as esES from "./es-ES";
 
-// TODO: do we need this pure comment?
 /**
  * @param {"en-US" | "es-ES"} locale
  */
-export const getTranslations = /*#__PURE__*/ (locale) => {
+export const getTranslations = (locale) => {
     // On the server, `DefinePlugin` would convert this to:
     // switch (false ? __LANG__ : locale) {
     // which would then be converted to
@@ -21,8 +19,8 @@ export const getTranslations = /*#__PURE__*/ (locale) => {
 
     switch (__CLIENT__ ? __LANG__ : locale) {
         case "en-US":
-            return { title: titleEnUs };
+            return { title: enUS.title };
         case "es-ES":
-            return { title: titleEsEs };
+            return { title: esES.title };
     }
 };
