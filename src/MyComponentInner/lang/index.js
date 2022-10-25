@@ -5,6 +5,7 @@ import * as esES from "./es-ES";
  * @param {"en-US" | "es-ES"} locale
  */
 export const getTranslations = (locale) => {
+    const v = __CLIENT__ ? __LANG__ : locale;
     // On the server, `DefinePlugin` would convert this to:
     // switch (false ? __LANG__ : locale) {
     // which would then be converted to
@@ -17,9 +18,9 @@ export const getTranslations = (locale) => {
 
     // dead code elimination + tree shaking takes care of the rest
 
-    if ((__CLIENT__ ? __LANG__ : locale) === "en-US") {
+    if (v === "en-US") {
         return enUS;
-    } else if ((__CLIENT__ ? __LANG__ : locale) === "es-ES") {
+    } else if (v === "es-ES") {
         return esES;
     }
 };
