@@ -5,9 +5,10 @@ import * as esES from "./es-ES";
  * @param {"en-US" | "es-ES"} locale
  */
 export const getTranslations = (locale) => {
-    if ((__CLIENT__ ? __LANG__ : locale) === "en-US") {
-        return enUS;
-    } else if ((__CLIENT__ ? __LANG__ : locale) === "es-ES") {
-        return esES;
+    switch (__CLIENT__ ? __LANG__ : locale) {
+        case "en-US":
+            return enUS;
+        case "es-ES":
+            return esES;
     }
 };
